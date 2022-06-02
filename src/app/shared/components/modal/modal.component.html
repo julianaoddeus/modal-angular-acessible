@@ -1,0 +1,8 @@
+<div class="modal-overlay" (click)="modalRef.close()"> <!--Fecha a janela clicando em qualquer canto-->
+  <div class="modal-content" (click)="$event.stopPropagation()"> <!--Não deixa fechar a janela do modal-->
+    <h1 class="modal-title">{{config.title}}</h1>
+    <!-- conteúdo do template que quero exibir -->
+    <!-- consegue isso através de uma diretiva do angular -->
+    <ng-container *ngTemplateOutlet="config.templateRef"></ng-container>
+  </div>
+</div>
