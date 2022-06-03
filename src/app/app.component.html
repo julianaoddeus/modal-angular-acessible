@@ -3,30 +3,32 @@
 <button class="button button-primary" type="button" (click)="show()">Show Modal</button>
 
 <ng-template #modal> <!--variavel de template ex:  #modal-->
-  <div class="form-field">
-    <label for="first-name">Fisrt Name</label>
-    <input id="first-name" [(value)]="firstName">
-  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-field">
+      <label for="first-name">Fisrt Name</label>
+      <input id="first-name" formControlName="firstName">
+    </div>
 
-  <div class="form-field">
-    <label for="surname">Surname</label>
-    <input id="surname">
-  </div>
+    <div class="form-field">
+      <label for="surname">Surname</label>
+      <input id="surname"  formControlName="surname">
+    </div>
 
-  <div class="form-field">
-    <label for="age">Age</label>
-    <input id="age">
-  </div>
+    <div class="form-field">
+      <label for="age">Age</label>
+      <input id="age"  formControlName="age">
+    </div>
 
-  <label for="info">Subscribe to news letters</label>
-  <input type="checkbox" id="info" (change)="info = !info">
-  <p *ngIf="info">This is a placeholder for more information.</p>
+    <label for="info">Subscribe to news letters</label>
+    <input type="checkbox" id="info" (change)="info = !info"  formControlName="info">
+    <p *ngIf="info">This is a placeholder for more information.</p>
 
-  <div class="button-group">
-    <button class="button button-primary" type="button">Submit</button>
-    <button class="button button-secondary" type="button" (click)="modalRef.close()">cancel</button>
+    <div class="button-group">
+      <button class="button button-primary" type="submit">Submit</button>
+      <button class="button button-secondary" type="button" (click)="modalRef.close()">cancel</button>
 
-  </div>
+    </div>
+  </form>
 </ng-template>
 
 
